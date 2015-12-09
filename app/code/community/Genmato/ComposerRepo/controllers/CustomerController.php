@@ -25,14 +25,8 @@ class Genmato_ComposerRepo_CustomerController extends Mage_Core_Controller_Front
             return;
         }
 
-        $action = $this->getRequest()->getActionName();
-        $openActions = array();
-        $pattern = '/^(' . implode('|', $openActions) . ')/i';
-
-        if (!preg_match($pattern, $action)) {
-            if (!$this->_getSession()->authenticate($this)) {
-                $this->setFlag('', 'no-dispatch', true);
-            }
+        if (!$this->_getSession()->authenticate($this)) {
+            $this->setFlag('', 'no-dispatch', true);
         } else {
             $this->_getSession()->setNoReferer(true);
         }

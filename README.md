@@ -27,6 +27,7 @@ TODO
   - Install package (composer require [package name])
 - Backend forms to add/edit packages
 - Statistics screen for downloads
+- Check on generated key+secret pair to be unique
 
 Configuration:
 =====
