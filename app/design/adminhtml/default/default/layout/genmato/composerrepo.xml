@@ -1,0 +1,58 @@
+<?xml version="1.0" ?>
+<layout>
+    <adminhtml_composer_packages_index>
+        <reference name="content">
+            <block type="genmato_composerrepo/adminhtml_composer_packages" name='packages'/>
+        </reference>
+    </adminhtml_composer_packages_index>
+
+
+    <adminhtml_composer_packages_grid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="genmato_composerrepo/adminhtml_composer_packages_grid"
+                   name="packages.grid"/>
+        </block>
+    </adminhtml_composer_packages_grid>
+
+    <adminhtml_composer_packages_versions_index>
+        <reference name="content">
+            <block type="genmato_composerrepo/adminhtml_composer_packages_versions" name='versions'/>
+        </reference>
+    </adminhtml_composer_packages_versions_index>
+
+
+    <adminhtml_composer_packages_versions_grid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="genmato_composerrepo/adminhtml_composer_packages_versions_grid"
+                   name="versions.grid"/>
+        </block>
+    </adminhtml_composer_packages_versions_grid>
+
+    <adminhtml_composer_customer_auth_index>
+        <reference name="content">
+            <block type="genmato_composerrepo/adminhtml_composer_customer_auth" name='customer_auth'/>
+        </reference>
+    </adminhtml_composer_customer_auth_index>
+
+    <adminhtml_composer_customer_auth_grid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="genmato_composerrepo/adminhtml_composer_customer_auth_grid"
+                   name="customer_auth.grid"/>
+        </block>
+    </adminhtml_composer_customer_auth_grid>
+
+    <adminhtml_composer_customer_packages_index>
+        <reference name="content">
+            <block type="genmato_composerrepo/adminhtml_composer_customer_packages" name='customer_auth'/>
+        </reference>
+    </adminhtml_composer_customer_packages_index>
+
+    <adminhtml_composer_customer_packages_grid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="genmato_composerrepo/adminhtml_composer_customer_packages_grid"
+                   name="customer_auth.grid"/>
+        </block>
+    </adminhtml_composer_customer_packages_grid>
+
+
+</layout>

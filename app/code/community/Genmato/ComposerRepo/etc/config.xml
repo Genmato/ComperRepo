@@ -1,0 +1,132 @@
+<?xml version="1.0" ?>
+<config>
+    <modules>
+        <Genmato_ComposerRepo>
+            <version>0.3.0</version>
+        </Genmato_ComposerRepo>
+    </modules>
+    <global>
+        <models>
+            <genmato_composerrepo>
+                <class>Genmato_ComposerRepo_Model</class>
+                <resourceModel>genmato_composerrepo_resource</resourceModel>
+            </genmato_composerrepo>
+            <genmato_composerrepo_resource>
+                <class>Genmato_ComposerRepo_Model_Resource</class>
+                <entities>
+                    <customer_auth>
+                        <table>genmato_composerrepo_customer_auth</table>
+                    </customer_auth>
+                    <customer_packages>
+                        <table>genmato_composerrepo_customer_packages</table>
+                    </customer_packages>
+                    <packages>
+                        <table>genmato_composerrepo_packages</table>
+                    </packages>
+                    <packages_versions>
+                        <table>genmato_composerrepo_packages_versions</table>
+                    </packages_versions>
+                    <packages_notify>
+                        <table>genmato_composerrepo_packages_notify</table>
+                    </packages_notify>
+                </entities>
+            </genmato_composerrepo_resource>
+        </models>
+
+        <blocks>
+            <genmato_composerrepo>
+                <class>Genmato_ComposerRepo_Block</class>
+            </genmato_composerrepo>
+        </blocks>
+
+        <helpers>
+            <genmato_composerrepo>
+                <class>Genmato_ComposerRepo_Helper</class>
+            </genmato_composerrepo>
+        </helpers>
+
+        <resources>
+            <genmato_composerrepo_setup>
+                <setup>
+                    <module>Genmato_ComposerRepo</module>
+                </setup>
+            </genmato_composerrepo_setup>
+        </resources>
+
+        <cache>
+            <types>
+                <packages_json translate="label,description" module="genmato_composerrepo">
+                    <label>Packages.json</label>
+                    <description>Customer ordered packages.json cache</description>
+                    <tags>PACKAGES_JSON</tags>
+                </packages_json>
+            </types>
+        </cache>
+
+        <events>
+            <sales_order_invoice_pay>
+                <observers>
+                    <genmato_composerrepo>
+                        <class>Genmato_ComposerRepo_Model_Observer</class>
+                        <type>singleton</type>
+                        <method>salesOrderInvoicePay</method>
+                    </genmato_composerrepo>
+                </observers>
+            </sales_order_invoice_pay>
+            <sales_order_creditmemo_save_commit_after>
+                <observers>
+                    <genmato_composerrepo>
+                        <class>Genmato_ComposerRepo_Model_Observer</class>
+                        <type>singleton</type>
+                        <method>salesOrderCreditmemoSaveCommitAfter</method>
+                    </genmato_composerrepo>
+                </observers>
+            </sales_order_creditmemo_save_commit_after>
+        </events>
+    </global>
+
+    <frontend>
+        <secure_url>
+            <customer>/composer/customer</customer>
+        </secure_url>
+        <routers>
+            <genmato_composerrepo>
+                <use>standard</use>
+                <args>
+                    <module>Genmato_ComposerRepo</module>
+                    <frontName>composer</frontName>
+                </args>
+            </genmato_composerrepo>
+        </routers>
+        <layout>
+            <updates>
+                <genmato_composerrepo>
+                    <file>genmato/composerrepo.xml</file>
+                </genmato_composerrepo>
+            </updates>
+        </layout>
+    </frontend>
+
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <composerrepo after="Mage_Adminhtml">Genmato_ComposerRepo_Adminhtml</composerrepo>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+
+    <adminhtml>
+        <layout>
+            <updates>
+                <genmato_composerrepo>
+                    <file>genmato/composerrepo.xml</file>
+                </genmato_composerrepo>
+            </updates>
+        </layout>
+    </adminhtml>
+
+</config>

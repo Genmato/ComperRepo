@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<config>
+    <modules>
+        <Genmato_ComposerRepo>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Genmato_ComposerRepo>
+    </modules>
+</config>

@@ -1,0 +1,176 @@
+<?xml version="1.0"?>
+<config>
+    <sections>
+        <genmato_composerrepo>
+            <label>Composer Repo</label>
+            <tab>genmato</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>199001</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <extension>
+                    <label>Extension Information</label>
+                    <frontend_type>text</frontend_type>
+                    <frontend_model>genmato_core/system_config_form_fieldset_extension_details</frontend_model>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                </extension>
+                <logging>
+                    <label>Logging</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>11</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <enabled translate="label comment">
+                            <label>Enable Logging</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </enabled>
+                    </fields>
+                </logging>
+                <configuration>
+                    <label>Configuration</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>100</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label comment">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <backend_model>genmato_composerrepo/system_config_backend_repository_enable</backend_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <repo_id translate="label comment">
+                            <label>Repository name</label>
+                            <comment>Single word in lowercase, used to identify the repository in composer</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </repo_id>
+                        <repo_url translate="label comment">
+                            <label>Repository URL</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>21</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </repo_url>
+                        <include_dev translate="label comment">
+                            <label>Include dev-master</label>
+                            <comment>Include dev-master as downloadable packge</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </include_dev>
+                        <update_period translate="label comment">
+                            <label>Update period (months)</label>
+                            <comment>Period (in months) for free updates to newer version, leave empty for unlimited</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </update_period>
+                    </fields>
+                </configuration>
+                <satis>
+                    <label>Satis Configuration</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>200</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <bin translate="label comment">
+                            <label>Satis command path</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </bin>
+                        <config translate="label comment">
+                            <label>Satis config path</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </config>
+                        <name translate="label comment">
+                            <label>Name</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </name>
+                        <homepage translate="label comment">
+                            <label>Homepage URL</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </homepage>
+                        <output-dir translate="label comment">
+                            <label>Output Directory</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </output-dir>
+                    </fields>
+                </satis>
+                <satis_archive>
+                    <label>Satis Archive Configuration</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>300</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <format translate="label comment">
+                            <label>Format (zip or tar)</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </format>
+                        <absolute-directory translate="label comment">
+                            <label>Absolute Directory</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </absolute-directory>
+                    </fields>
+                </satis_archive>
+            </groups>
+        </genmato_composerrepo>
+    </sections>
+</config>

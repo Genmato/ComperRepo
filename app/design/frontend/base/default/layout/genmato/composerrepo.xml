@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+
+    <customer_account>
+        <reference name="customer_account_navigation">
+            <action method="addLink">
+                <name>composerrepo_keys</name>
+                <path>composer/customer</path>
+                <label>Composer Authentication</label>
+            </action>
+            <action method="addLink">
+                <name>composerrepo_packages</name>
+                <path>composer/customer/packages</path>
+                <label>Composer Packages</label>
+            </action>
+        </reference>
+    </customer_account>
+
+    <genmato_composerrepo_customer_index>
+        <update handle="customer_account"/>
+        <reference name="my.account.wrapper">
+            <block type="genmato_composerrepo/customer_keys" name="composer.keys"
+                   template="genmato/composerrepo/customer/keys.phtml"/>
+            <block type="customer/account_dashboard" name="customer.account.link.back"
+                   template="customer/account/link/back.phtml"/>
+        </reference>
+    </genmato_composerrepo_customer_index>
+
+    <genmato_composerrepo_customer_packages>
+        <update handle="customer_account"/>
+        <reference name="my.account.wrapper">
+            <block type="genmato_composerrepo/customer_packages" name="composer.packages"
+                   template="genmato/composerrepo/customer/packages.phtml"/>
+            <block type="customer/account_dashboard" name="customer.account.link.back"
+                   template="customer/account/link/back.phtml"/>
+        </reference>
+    </genmato_composerrepo_customer_packages>
+
+</layout>

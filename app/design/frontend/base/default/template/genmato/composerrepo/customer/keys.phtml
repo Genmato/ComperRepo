@@ -1,0 +1,61 @@
+<?php echo $this->getMessagesBlock()->toHtml() ?>
+<?php $_keys = $this->getAuthKeys(); ?>
+<div class="page-title">
+    <h1><?php echo $this->__('Composer Authentication Keys') ?></h1>
+</div>
+<?php echo $this->getPagerHtml(); ?>
+<?php if($_keys->getSize()): ?>
+    <table class="data-table" id="my-keys-table">
+        <col width="1" />
+        <col />
+        <col width="1" />
+        <thead>
+        <tr>
+            <th><?php echo $this->__('Desciption') ?></th>
+            <th><span class="nobr"><?php echo $this->__('Authentication keys') ?></span></th>
+            <th>&nbsp;</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php $_odd = ''; ?>
+        <?php foreach ($_keys as $_key): ?>
+            <tr>
+                <td><?php echo $_key->getDescription() ?></td>
+                <td><span class="nobr">
+                        <span class="title"><b><?php echo $this->__('Username');?>:</b>&nbsp;</span><?php echo $_key->getAuthKey(); ?><br>
+                        <span class="title"><b><?php echo $this->__('Password');?>:</b>&nbsp;</span><?php echo $_key->getAuthSecret(); ?>
+                    </span></td>
+                <td class="a-center">
+                   <span class="nobr"><a href="<?php echo $this->getDeleteUrl($_key) ?>"><?php echo $this->__('Delete') ?></a></span>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+    <script type="text/javascript">decorateTable('my-keys-table');</script>
+    <?php echo $this->getPagerHtml(); ?>
+<?php else: ?>
+    <p><?php echo $this->__('You have no authentication keys.'); ?></p>
+<?php endif ?>
+
+<form action="<?php echo $this->getGenerateUrl();?>" method="post" id="form-validate" class="scaffold-form">
+<div class="fieldset">
+    <?php echo $this->getBlockHtml('formkey')?>
+    <h2 class="legend"><?php echo $this->__('Generate New Authentication Key') ?></h2>
+    <p class="required"><?php echo $this->__('* Required Fields') ?></p>
+    <ul class="form-list">
+        <li class="fields">
+            <label for="name" class="required"><?php echo $this->__('Key Name') ?></label>
+            <div class="input-box">
+                <input name="description" id="description" title="<?php echo $this->__('Key Description') ?>" maxlength="50" class="input-text required-entry"/>
+            </div>
+        </li>
+    </ul>
+    <button type="submit" title="<?php echo $this->__('Generate New') ?>" class="button"><span><span><?php echo $this->__('Generate New') ?></span></span></button>
+</div>
+</form>
+<script type="text/javascript">
+    //<![CDATA[
+    var dataForm = new VarienForm('form-validate', true);
+    //]]>
+</script>

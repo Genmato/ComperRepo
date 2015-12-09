@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <menu>
+        <catalog>
+            <children>
+                <genmato_composerrepo module="genmato_composerrepo">
+                    <title>Composer Repository</title>
+                    <sort_order>30</sort_order>
+                    <children>
+                        <packages module="genmato_composerrepo">
+                            <title>Packages</title>
+                            <sort_order>10</sort_order>
+                            <action>adminhtml/composer_packages/</action>
+                        </packages>
+                        <customer_auth module="genmato_composerrepo">
+                            <title>Customer Keys</title>
+                            <sort_order>20</sort_order>
+                            <action>adminhtml/composer_customer_auth/</action>
+                        </customer_auth>
+                        <customer_packages module="genmato_composerrepo">
+                            <title>Customer Packages</title>
+                            <sort_order>30</sort_order>
+                            <action>adminhtml/composer_customer_packages/</action>
+                        </customer_packages>
+                        <statistics module="genmato_composerrepo">
+                            <title>Installation Statistics</title>
+                            <sort_order>40</sort_order>
+                            <action>adminhtml/composer_statistics/</action>
+                        </statistics>
+                    </children>
+                </genmato_composerrepo>
+            </children>
+        </catalog>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <catalog>
+                        <children>
+                            <genmato_composerrepo module="genmato_composerrepo">
+                                <title>Composer Repository</title>
+                                <sort_order>30</sort_order>
+                                <children>
+                                    <packages module="genmato_composerrepo">
+                                        <title>Packages</title>
+                                        <sort_order>10</sort_order>
+                                    </packages>
+                                    <customer_auth module="genmato_composerrepo">
+                                        <title>Customer Keys</title>
+                                        <sort_order>20</sort_order>
+                                    </customer_auth>
+                                    <customer_packages module="genmato_composerrepo">
+                                        <title>Customer Packages</title>
+                                        <sort_order>30</sort_order>
+                                    </customer_packages>
+                                    <statistics module="genmato_composerrepo">
+                                        <title>Installation Statistics</title>
+                                        <sort_order>40</sort_order>
+                                    </statistics>
+                                </children>
+                            </genmato_composerrepo>
+                        </children>
+                    </catalog>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <genmato_composerrepo>
+                                        <title>Genmato - Composer Repo</title>
+                                    </genmato_composerrepo>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>
