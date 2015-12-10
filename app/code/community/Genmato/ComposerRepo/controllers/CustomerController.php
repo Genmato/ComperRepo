@@ -52,15 +52,6 @@ class Genmato_ComposerRepo_CustomerController extends Mage_Core_Controller_Front
         $this->_getSession()->unsNoReferer(false);
     }
 
-    public function testAction()
-    {
-        $key = Mage::getModel('genmato_composerrepo/customer_auth')->load(2);
-
-        $packages = Mage::getResourceModel('genmato_composerrepo/packages_collection');
-
-        $key->sendEmail($packages);
-    }
-
     public function indexAction()
     {
         $this->loadLayout();
