@@ -43,12 +43,12 @@
         <td>
             <h3>Installation</h3>
             <p>To install the available packages you need to add our repository to your composer configuration with the following command:</br></br>
-            <pre><code>composer config repositories.{{var repo_id}} composer {var repo_url}}</code></pre></br>
+            <pre><code>composer config repositories.{{var repo_id}} composer {{var repo_url}}</code></pre></br>
             Next install the package with the command:</br><br>
             <pre><code>composer require [package_name]</code></pre><br>
-            When prompted, enter your Authentication details:<br>
-            Username: {{var auth_key}}<br>
-            Password: {{var auth_secret}}
+            When prompted, enter your Authentication details:<br><br>
+            <b>Username:</b> {{var auth_key}}<br>
+            <b>Password:</b> {{var auth_secret}}
             </p>
             <p>You can manage your keys in your account thru the <a href="{{store url='composer/customer/'}}">Composer Authentication</a> page.</p>
         </td>
