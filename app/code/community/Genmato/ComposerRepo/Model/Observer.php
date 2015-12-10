@@ -57,6 +57,10 @@ class Genmato_ComposerRepo_Model_Observer
             }
         }
 
+        if (!count($installPackages)) {
+            return;
+        }
+
         $customerKeys = Mage::getModel('genmato_composerrepo/customer_auth')
             ->getCollection()
             ->addFieldToFilter('status', array('eq'=>1))

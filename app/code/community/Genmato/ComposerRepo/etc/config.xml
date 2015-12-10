@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Genmato_ComposerRepo>
-            <version>0.4.3</version>
+            <version>0.4.4</version>
         </Genmato_ComposerRepo>
     </modules>
     <global>
