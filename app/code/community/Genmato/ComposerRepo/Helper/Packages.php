@@ -45,6 +45,8 @@ class Genmato_ComposerRepo_Helper_Packages extends Genmato_ComposerRepo_Helper_D
                 ->addFieldToFilter('main_table.status', array('eq' => Genmato_ComposerRepo_Model_Packages::STATUS_ENABLED))
                 ->addFieldToFilter('customer_packages.status', array('eq' => 1));
 
+            $collection->getSelect()->group('main_table.entity_id');
+
             foreach ($collection as $package) {
                 $cacheTags[] = Genmato_ComposerRepo_Model_Packages::CACHE_KEY.$package->getId();
 
