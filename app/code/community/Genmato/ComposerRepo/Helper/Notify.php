@@ -1,7 +1,21 @@
 <?php
 
+/**
+ * Magento Composer Repository Manager
+ *
+ * @package Genmato_ComposerRepo
+ * @author  Vladimir Kerkhoff <v.kerkhoff@genmato.com>
+ * @created 2015-12-09
+ * @copyright Copyright (c) 2015 Genmato BV, https://genmato.com.
+ */
+
 class Genmato_ComposerRepo_Helper_Notify extends Genmato_ComposerRepo_Helper_Data
 {
+    /**
+     * Store composer installation notification
+     * @param $downloadPackages
+     * @param $customer
+     */
     public function storeNotifyData($downloadPackages, $customer)
     {
         $packageModel = Mage::getModel('genmato_composerrepo/packages');
@@ -20,7 +34,6 @@ class Genmato_ComposerRepo_Helper_Notify extends Genmato_ComposerRepo_Helper_Dat
             }
 
             $notify = Mage::getModel('genmato_composerrepo/packages_notify')
-                ->setCreatedate(now())
                 ->setCustomerId($customer->getCustomerId())
                 ->setCustomerAuthId($customer->getId())
                 ->setPackageId($package->getId())

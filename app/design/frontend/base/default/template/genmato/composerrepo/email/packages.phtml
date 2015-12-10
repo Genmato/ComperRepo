@@ -1,0 +1,22 @@
+<?php
+$packages  = $this->getPackages();
+?>
+<table>
+    <thead>
+        <tr>
+            <td>Magento Extension</td>
+            <td>Package Name</td>
+            <td>Version</td>
+        </tr>
+    </thead>
+    <tbody>
+    <?php foreach($packages as $package):?>
+        <tr>
+            <td><?php echo $package->getDescription();?></td>
+            <td><?php echo $package->getName();?></td>
+            <td><?php echo $package->getVersion();?></td>
+        </tr>
+    <?php endforeach;?>
+    </tbody>
+</table>
+

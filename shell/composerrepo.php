@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * Magento Composer Repository Manager
+ *
+ * @package Genmato_ComposerRepo
+ * @author  Vladimir Kerkhoff <v.kerkhoff@genmato.com>
+ * @created 2015-12-09
+ * @copyright Copyright (c) 2015 Genmato BV, https://genmato.com.
+ */
+
 require_once 'abstract.php';
 
 class Genmato_Shell_Composer_Repo extends Mage_Shell_Abstract
@@ -84,8 +93,7 @@ class Genmato_Shell_Composer_Repo extends Mage_Shell_Abstract
                             $versionModel = Mage::getModel('genmato_composerrepo/packages_versions')
                                 ->getByPackageVersion($packageModel->getId(), $versionNr);
                             if (!$versionModel->getId()) {
-                                $versionModel->setCreatedate(now())
-                                    ->setPackageId($packageModel->getId())
+                                $versionModel->setPackageId($packageModel->getId())
                                     ->setFile(array_pop($filePart))
                                     ->setVersion($versionNr);
                                 $versionModel->save();

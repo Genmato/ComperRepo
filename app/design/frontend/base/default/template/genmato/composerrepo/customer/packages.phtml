@@ -1,3 +1,14 @@
+<?php
+
+/**
+ * Magento Composer Repository Manager
+ *
+ * @package Genmato_ComposerRepo
+ * @author  Vladimir Kerkhoff <v.kerkhoff@genmato.com>
+ * @created 2015-12-09
+ * @copyright Copyright (c) 2015 Genmato BV, https://genmato.com.
+ */
+?>
 <?php echo $this->getMessagesBlock()->toHtml() ?>
 <?php $_packages = $this->getPackages(); ?>
 <div class="page-title">
@@ -34,3 +45,15 @@
 <?php else: ?>
     <p><?php echo $this->__('There are no packages available'); ?></p>
 <?php endif ?>
+<div class="dashboard">
+    <div class="box-account box-info">
+        <div class="box-head"><h2>Installation Instructions</h2></div>
+        <div class="box-content">
+            To install the available packages you need to add our repository to your composer configuration with the following command:</br></br>
+            <pre><code>composer config repositories.<?php echo $this->getRepoId() ?> composer <?php echo $this->getRepoUrl() ?></code></pre></br>
+            Next install the package with the command:</br><br>
+            <pre><code>composer require [package_name]</code></pre><br>
+            When prompted, enter your <a href='<?php echo $this->getUrl('composer/customer');?>'>Authentication details</a>.
+        </div>
+    </div>
+</div>

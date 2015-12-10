@@ -1,12 +1,14 @@
 <?php
+
 /**
- * Default (Template) Project
+ * Magento Composer Repository Manager
  *
- * @package Genmato_Default (Template) Project
- * @author  Vladimir Kerkhoff <support@genmato.com>
- * @created 2015-12-06
+ * @package Genmato_ComposerRepo
+ * @author  Vladimir Kerkhoff <v.kerkhoff@genmato.com>
+ * @created 2015-12-09
  * @copyright Copyright (c) 2015 Genmato BV, https://genmato.com.
- */ 
+ */
+
 class Genmato_ComposerRepo_Model_Customer_Packages extends Mage_Core_Model_Abstract
 {
 

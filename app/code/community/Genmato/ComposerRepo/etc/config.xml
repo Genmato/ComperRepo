@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Genmato_ComposerRepo>
-            <version>0.3.1</version>
+            <version>0.4.0</version>
         </Genmato_ComposerRepo>
     </modules>
     <global>
@@ -62,6 +62,16 @@
                 </packages_json>
             </types>
         </cache>
+
+        <template>
+            <email>
+                <genmato_composerrepo_configuration_email_template translate="label" module="genmato_composerrepo">
+                    <label>Composer Installation Instructions</label>
+                    <file>genmato/composerrepo/installation.html</file>
+                    <type>html</type>
+                </genmato_composerrepo_configuration_email_template>
+            </email>
+        </template>
 
         <events>
             <sales_order_invoice_pay>
@@ -128,5 +138,13 @@
             </updates>
         </layout>
     </adminhtml>
+
+    <default>
+        <genmato_composerrepo>
+            <configuration>
+                <email_template>genmato_composerrepo_configuration_email_template</email_template>
+            </configuration>
+        </genmato_composerrepo>
+    </default>
 
 </config>

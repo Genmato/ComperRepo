@@ -1,0 +1,60 @@
+<!--@subject {{var store.getFrontendName()}}: Installation instructions @-->
+<!--@styles
+@-->
+
+{{template config_path="design/email/header"}}
+{{inlinecss file="email-inline.css"}}
+
+<table cellpadding="0" cellspacing="0" border="0">
+    <tr>
+        <td>
+            <table cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                    <td class="email-heading">
+                        <h1>Ordered package(s) installation instructions</h1>
+                        <p>Thanks you for ordering our Magento Extensions, below you will find the installation instructions to install the ordered packages thru composer.</p>
+                    </td>
+                    <td class="store-info">
+                        <h4>Questions?</h4>
+                        <p>
+                            {{depend store_phone}}
+                            <b>Call Us:</b>
+                            <a href="tel:{{var phone}}">{{var store_phone}}</a><br>
+                            {{/depend}}
+                            {{depend store_hours}}
+                            <span class="no-link">{{var store_hours}}</span><br>
+                            {{/depend}}
+                            {{depend store_email}}
+                            <b>Email:</b> <a href="mailto:{{var store_email}}">{{var store_email}}</a>
+                            {{/depend}}
+                        </p>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h3>Ordered packages</h3>
+            {{block type='core/template' template='genmato/composerrepo/email/packages.phtml' packages=$packages}}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h3>Installation</h3>
+            <p>To install the available packages you need to add our repository to your composer configuration with the following command:</br></br>
+            <pre><code>composer config repositories.{{var repo_id}} composer {var repo_url}}</code></pre></br>
+            Next install the package with the command:</br><br>
+            <pre><code>composer require [package_name]</code></pre><br>
+            When prompted, enter your Authentication details:<br>
+            Username: {{var auth_key}}<br>
+            Password: {{var auth_secret}}
+            </p>
+            <p>You can manage your keys in your account thru the <a href="{{store url='composer/customer/'}}">Composer Authentication</a> page.</p>
+        </td>
+    </tr>
+
+</table>
+
+{{template config_path="design/email/footer"}}
+

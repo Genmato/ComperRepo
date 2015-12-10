@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * Magento Composer Repository Manager
+ *
+ * @package Genmato_ComposerRepo
+ * @author  Vladimir Kerkhoff <v.kerkhoff@genmato.com>
+ * @created 2015-12-09
+ * @copyright Copyright (c) 2015 Genmato BV, https://genmato.com.
+ */
+
 class Genmato_ComposerRepo_Block_Customer_Packages extends Mage_Core_Block_Template
 {
     public function __construct()
@@ -45,8 +54,23 @@ class Genmato_ComposerRepo_Block_Customer_Packages extends Mage_Core_Block_Templ
         return $this->getChildHtml('pager');
     }
 
+    public function getRepoId()
+    {
+        return $this->getConfig('repo_id');
+    }
+
+    public function getRepoUrl()
+    {
+        return $this->getConfig('repo_url');
+    }
+
     protected function getCustomer()
     {
         return Mage::getSingleton('customer/session')->getCustomer();
+    }
+
+    protected function getConfig($node)
+    {
+        return Mage::getStoreConfig('genmato_composerrepo/configuration/'.$node);
     }
 }

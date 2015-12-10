@@ -21,11 +21,6 @@ Using Satis the composer.json and packages will be generated and stores on the s
 TODO
 =====
 
-- Send e-mail with instructions on how to install the package
-  - Add the repository (composer config repositories.[name] composer [repo url]
-  - Optionally add auth for repo
-  - Install package (composer require [package name])
-- Backend forms to add/edit packages
 - Statistics screen for downloads
 - Check on generated key+secret pair to be unique
 

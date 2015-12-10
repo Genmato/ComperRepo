@@ -1,7 +1,22 @@
 <?php
 
+/**
+ * Magento Composer Repository Manager
+ *
+ * @package Genmato_ComposerRepo
+ * @author  Vladimir Kerkhoff <v.kerkhoff@genmato.com>
+ * @created 2015-12-09
+ * @copyright Copyright (c) 2015 Genmato BV, https://genmato.com.
+ */
+
 class Genmato_ComposerRepo_Helper_Download extends Genmato_ComposerRepo_Helper_Data
 {
+    /**
+     * Check if access to (and output) requested download file is allowed
+     * @param $customerId
+     * @param $params
+     * @return mixed
+     */
     public function getFile($customerId, $params)
     {
         $packageName = isset($params['m']) ? str_replace('_','/',$params['m']) : '';
@@ -50,11 +65,25 @@ class Genmato_ComposerRepo_Helper_Download extends Genmato_ComposerRepo_Helper_D
         return $this->sendFile($packageDir.DS.$file, $packageName, $packageVersion);
     }
 
+    /**
+     * Output 404 error message (file not found) with message
+     *
+     * @param $message
+     * @return mixed
+     */
     protected function setHeaderUnknown($message)
     {
         return $this->sendHeader(404, $message);
     }
 
+    /**
+     * Send file to download
+     *
+     * @param $fileName
+     * @param $packageName
+     * @param $packageVersion
+     * @return mixed
+     */
     protected function sendFile($fileName, $packageName, $packageVersion)
     {
         if(!file_exists($fileName)) {
@@ -68,6 +97,14 @@ class Genmato_ComposerRepo_Helper_Download extends Genmato_ComposerRepo_Helper_D
         $this->sendHeader(200, $content, 'application/octet-stream', $outputName);
     }
 
+    /**
+     * Get Config parameter
+     *
+     * @param string $node
+     * @param string $path
+     * @param string $main
+     * @return mixed
+     */
     protected function getConfig($node = '', $path = 'satis', $main = 'genmato_composerrepo')
     {
         return Mage::getStoreConfig($main.'/'.$path.'/'.$node);

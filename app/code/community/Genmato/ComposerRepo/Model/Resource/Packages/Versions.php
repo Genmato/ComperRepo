@@ -1,12 +1,14 @@
 <?php
+
 /**
- * Default (Template) Project
+ * Magento Composer Repository Manager
  *
- * @package Genmato_Default (Template) Project
- * @author  Vladimir Kerkhoff <support@genmato.com>
- * @created 2015-12-06
+ * @package Genmato_ComposerRepo
+ * @author  Vladimir Kerkhoff <v.kerkhoff@genmato.com>
+ * @created 2015-12-09
  * @copyright Copyright (c) 2015 Genmato BV, https://genmato.com.
- */ 
+ */
+
 class Genmato_ComposerRepo_Model_Resource_Packages_Versions extends Mage_Core_Model_Resource_Db_Abstract
 {
 
@@ -15,4 +17,12 @@ class Genmato_ComposerRepo_Model_Resource_Packages_Versions extends Mage_Core_Mo
         $this->_init('genmato_composerrepo/packages_versions', 'entity_id');
     }
 
+    public function _beforeSave(Mage_Core_Model_Abstract $object)
+    {
+        if (!$object->getId()) {
+            $object->setCreatedate(now());
+        }
+
+        return parent::_beforeSave($object);
+    }
 }

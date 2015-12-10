@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * Magento Composer Repository Manager
+ *
+ * @package Genmato_ComposerRepo
+ * @author  Vladimir Kerkhoff <v.kerkhoff@genmato.com>
+ * @created 2015-12-09
+ * @copyright Copyright (c) 2015 Genmato BV, https://genmato.com.
+ */
+
 class Genmato_ComposerRepo_Adminhtml_Composer_Customer_AuthController extends Mage_Adminhtml_Controller_Action
 {
     public function indexAction()

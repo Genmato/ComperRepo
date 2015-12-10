@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * Magento Composer Repository Manager
+ *
+ * @package Genmato_ComposerRepo
+ * @author  Vladimir Kerkhoff <v.kerkhoff@genmato.com>
+ * @created 2015-12-09
+ * @copyright Copyright (c) 2015 Genmato BV, https://genmato.com.
+ */
+
 class Genmato_ComposerRepo_CustomerController extends Mage_Core_Controller_Front_Action
 {
     /**
@@ -43,6 +52,14 @@ class Genmato_ComposerRepo_CustomerController extends Mage_Core_Controller_Front
         $this->_getSession()->unsNoReferer(false);
     }
 
+    public function testAction()
+    {
+        $key = Mage::getModel('genmato_composerrepo/customer_auth')->load(2);
+
+        $packages = Mage::getResourceModel('genmato_composerrepo/packages_collection');
+
+        $key->sendEmail($packages);
+    }
 
     public function indexAction()
     {
@@ -57,7 +74,6 @@ class Genmato_ComposerRepo_CustomerController extends Mage_Core_Controller_Front
         $customerId = $this->_getSession()->getCustomer()->getId();
 
         $authkey = Mage::getModel('genmato_composerrepo/customer_auth')
-            ->setCreatedate(now())
             ->setStatus(1)
             ->setDefault(0)
             ->setCustomerId($customerId)

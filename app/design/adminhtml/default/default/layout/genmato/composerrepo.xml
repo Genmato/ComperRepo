@@ -6,13 +6,18 @@
         </reference>
     </adminhtml_composer_packages_index>
 
-
     <adminhtml_composer_packages_grid>
         <block type="core/text_list" name="root" output="toHtml">
             <block type="genmato_composerrepo/adminhtml_composer_packages_grid"
                    name="packages.grid"/>
         </block>
     </adminhtml_composer_packages_grid>
+
+    <adminhtml_composer_packages_edit>
+        <reference name="content">
+            <block type="genmato_composerrepo/adminhtml_composer_packages_edit" name='packages.edit'/>
+        </reference>
+    </adminhtml_composer_packages_edit>
 
     <adminhtml_composer_packages_versions_index>
         <reference name="content">

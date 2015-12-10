@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * Magento Composer Repository Manager
+ *
+ * @package Genmato_ComposerRepo
+ * @author  Vladimir Kerkhoff <v.kerkhoff@genmato.com>
+ * @created 2015-12-09
+ * @copyright Copyright (c) 2015 Genmato BV, https://genmato.com.
+ */
+
 class Genmato_ComposerRepo_Model_Observer
 {
     /**
@@ -24,10 +33,9 @@ class Genmato_ComposerRepo_Model_Observer
             $package = $packageModel->load($item->getProductId(), 'product_id');
 
             if ($package->getId()) {
-                $installPackages[] = $package->getName();
+                $installPackages[] = $package;
 
                 $customerPackage = Mage::getModel('genmato_composerrepo/customer_packages')
-                    ->setCreatedate(now())
                     ->setStatus(1)
                     ->setCustomerId($customerId)
                     ->setOrderId($order->getId())
@@ -58,7 +66,6 @@ class Genmato_ComposerRepo_Model_Observer
 
         if (!$customerKeys->getId()) {
             $customerKeys
-                ->setCreatedate(now())
                 ->setStatus(1)
                 ->setDefault(1)
                 ->setCustomerId($customerId)
