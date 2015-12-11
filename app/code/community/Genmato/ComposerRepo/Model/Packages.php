@@ -16,7 +16,9 @@ class Genmato_ComposerRepo_Model_Packages extends Mage_Core_Model_Abstract
 
     const STATUS_DISABLED = 0;
     const STATUS_ENABLED = 1;
-    const STATUS_FREE = 2;
+
+    const PACKAGE_NORMAL = 0;
+    const PACKAGE_BUNDLE = 1;
 
     protected function _construct()
     {

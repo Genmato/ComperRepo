@@ -9,14 +9,14 @@
  * @copyright Copyright (c) 2015 Genmato BV, https://genmato.com.
  */
 
-class Genmato_ComposerRepo_Model_System_Source_Packages_Status
+class Genmato_ComposerRepo_Model_System_Source_Packages_Type
 {
     public function toOptionHash()
     {
         $result = [];
 
-        $result[Genmato_ComposerRepo_Model_Packages::STATUS_DISABLED] = Mage::helper('genmato_composerrepo')->__('Disabled');
-        $result[Genmato_ComposerRepo_Model_Packages::STATUS_ENABLED] = Mage::helper('genmato_composerrepo')->__('Enabled');
+        $result[Genmato_ComposerRepo_Model_Packages::PACKAGE_NORMAL] = Mage::helper('genmato_composerrepo')->__('Normal (Payed)');
+        $result[Genmato_ComposerRepo_Model_Packages::PACKAGE_BUNDLE] = Mage::helper('genmato_composerrepo')->__('Bundled (Library)');
 
         return $result;
     }

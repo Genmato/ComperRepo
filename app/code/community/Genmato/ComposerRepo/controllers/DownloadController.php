@@ -54,7 +54,11 @@ class Genmato_ComposerRepo_DownloadController extends Mage_Core_Controller_Front
         return $customer;
     }
 
-
+    /**
+     * Build packages.json output
+     *
+     * @return $this|Genmato_ComposerRepo_DownloadController
+     */
     public function jsonAction()
     {
         $customer = $this->_init();
@@ -67,6 +71,11 @@ class Genmato_ComposerRepo_DownloadController extends Mage_Core_Controller_Front
         return $this->sendJSON($json);
     }
 
+    /**
+     * Download package
+     *
+     * @return $this|Genmato_ComposerRepo_DownloadController|mixed
+     */
     public function fileAction()
     {
         $customer = $this->_init();
@@ -80,6 +89,11 @@ class Genmato_ComposerRepo_DownloadController extends Mage_Core_Controller_Front
             );
     }
 
+    /**
+     * Log download notifications
+     *
+     * @return $this|Genmato_ComposerRepo_DownloadController
+     */
     public function notifyAction()
     {
         $customer = $this->_init();

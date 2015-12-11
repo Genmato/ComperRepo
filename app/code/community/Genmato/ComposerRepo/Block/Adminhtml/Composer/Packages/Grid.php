@@ -92,6 +92,17 @@ class Genmato_ComposerRepo_Block_Adminhtml_Composer_Packages_Grid extends Mage_A
             )
         );
 
+        $this->addColumn(
+            'bundled_package',
+            array(
+                'header' => Mage::helper('genmato_composerrepo')->__('Type'),
+                'type' => 'options',
+                'width' => '150px',
+                'index' => 'bundled_package',
+                'options' => Mage::getSingleton('genmato_composerrepo/system_source_packages_type')->toOptionHash()
+
+            )
+        );
 
         $this->addColumn(
             'action',

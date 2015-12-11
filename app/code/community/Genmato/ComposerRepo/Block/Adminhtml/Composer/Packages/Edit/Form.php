@@ -43,6 +43,18 @@ class Genmato_ComposerRepo_Block_Adminhtml_Composer_Packages_Edit_Form extends M
             )
         );
 
+        $fieldset->addField('bundled_package', 'select',
+            array(
+                'name'  => 'bundled_package',
+                'label' => Mage::helper('genmato_composerrepo')->__('Package Type'),
+                'title' => Mage::helper('genmato_composerrepo')->__('Package Type'),
+                'note' =>  Mage::helper('genmato_composerrepo')->__('Bundled packages will always be available in the packages.json, this can be useful for required library packages'),
+                'class' => 'required-entry',
+                'required' => true,
+                'values' => Mage::getSingleton('genmato_composerrepo/system_source_packages_type')->toOptionArray()
+            )
+        );
+
         $fieldset->addField('description', 'text',
             array(
                 'name'  => 'description',

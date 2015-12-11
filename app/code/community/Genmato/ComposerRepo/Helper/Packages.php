@@ -36,15 +36,34 @@ class Genmato_ComposerRepo_Helper_Packages extends Genmato_ComposerRepo_Helper_D
             $joinTable = Mage::getSingleton('core/resource')->getTableName('genmato_composerrepo/customer_packages');
             $collection = Mage::getResourceModel('genmato_composerrepo/packages_collection');
             $collection->getSelect()
-                ->join(
+                ->joinLeft(
                     array('customer_packages'=> $joinTable),
                     'main_table.entity_id = customer_packages.package_id',
                     array('max_version'=>'last_allowed_version')
                 );
             $collection
-                ->addFieldToFilter('main_table.status', array('eq' => Genmato_ComposerRepo_Model_Packages::STATUS_ENABLED))
-                ->addFieldToFilter('customer_packages.status', array('eq' => 1));
+                ->addFieldToFilter('main_table.status', array('eq' => Genmato_ComposerRepo_Model_Packages::STATUS_ENABLED));
+            $collection->addFieldToFilter(
+                array(
+                    'customer_packages.status',
+                    'main_table.bundled_package'
+                ),
+                array(
+                    array('eq'=>Genmato_ComposerRepo_Model_Packages::STATUS_ENABLED),
+                    array('eq'=>Genmato_ComposerRepo_Model_Packages::PACKAGE_BUNDLE)
+                )
+            );
 
+            $collection->addFieldToFilter(
+                array(
+                    'customer_packages.customer_id',
+                    'main_table.bundled_package'
+                ),
+                array(
+                    array('eq'=>$customerId),
+                    array('eq'=>Genmato_ComposerRepo_Model_Packages::PACKAGE_BUNDLE)
+                )
+            );
             $collection->getSelect()->group('main_table.entity_id');
 
             foreach ($collection as $package) {
@@ -59,17 +78,6 @@ class Genmato_ComposerRepo_Helper_Packages extends Genmato_ComposerRepo_Helper_D
                         $packages[$package->getName()][$version] = $data;
                     }
                 }
-            }
-            $collection = Mage::getResourceModel('genmato_composerrepo/packages_collection')
-                ->addFieldToFilter(
-                    'main_table.status',
-                    array(
-                        'eq' => Genmato_ComposerRepo_Model_Packages::STATUS_FREE
-                    )
-                );
-            foreach ($collection as $package) {
-                $cacheTags[] = Genmato_ComposerRepo_Model_Packages::CACHE_KEY.$package->getId();
-                $packages[$package->getName()] = json_decode($package->getPackageJson(), true);
             }
 
             $cache->save(
