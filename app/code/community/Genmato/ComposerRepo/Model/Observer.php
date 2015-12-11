@@ -70,12 +70,9 @@ class Genmato_ComposerRepo_Model_Observer
 
         if (!$customerKeys->getId()) {
             $customerKeys
-                ->setStatus(1)
                 ->setDefault(1)
                 ->setCustomerId($customerId)
-                ->setDescription('Auto generated keys')
-                ->setAuthKey(Mage::helper('core')->getRandomString(32))
-                ->setAuthSecret(Mage::helper('core')->getRandomString(32));
+                ->setDescription('Auto generated key');
             try {
                 $customerKeys->save();
             } catch (Exception $ex) {

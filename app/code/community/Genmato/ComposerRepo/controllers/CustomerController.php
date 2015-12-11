@@ -65,12 +65,9 @@ class Genmato_ComposerRepo_CustomerController extends Mage_Core_Controller_Front
         $customerId = $this->_getSession()->getCustomer()->getId();
 
         $authkey = Mage::getModel('genmato_composerrepo/customer_auth')
-            ->setStatus(1)
             ->setDefault(0)
             ->setCustomerId($customerId)
-            ->setDescription($desciption)
-            ->setAuthKey(Mage::helper('core')->getRandomString(32))
-            ->setAuthSecret(Mage::helper('core')->getRandomString(32));
+            ->setDescription($desciption);
 
         try {
             $authkey->save();

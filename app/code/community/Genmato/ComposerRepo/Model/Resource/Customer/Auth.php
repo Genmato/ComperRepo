@@ -20,9 +20,40 @@ class Genmato_ComposerRepo_Model_Resource_Customer_Auth extends Mage_Core_Model_
     public function _beforeSave(Mage_Core_Model_Abstract $object)
     {
         if (!$object->getId()) {
-            $object->setCreatedate(now());
+            $object->setCreatedate(now())
+                ->setStatus(1);
+            $this->generateUniqueAuthKey($object);
         }
 
         return parent::_beforeSave($object);
+    }
+
+    protected function generateUniqueAuthKey(Mage_Core_Model_Abstract $object)
+    {
+        while ( ($newKey = $this->getUniqueAuthKey()) === false) {
+            // Key not unique, try another one
+        }
+
+        $object->setAuthKey($newKey)
+            ->setAuthSecret(Mage::helper('core')->getRandomString(32));
+        return $object;
+    }
+
+    protected function getUniqueAuthKey()
+    {
+        $newKey = Mage::helper('core')->getRandomString(32);
+
+        $select = $this->_getReadAdapter()->select()
+            ->from(array('main_table' => $this->getMainTable()))
+            ->where('main_table.status = ?', 1)
+            ->where('main_table.auth_key = ?', $newKey);
+
+        echo $select;
+
+        if (!$this->_getReadAdapter()->fetchRow($select)) {
+            return $newKey;
+        }
+
+        return false;
     }
 }

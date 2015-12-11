@@ -22,7 +22,6 @@ TODO
 =====
 
 - Statistics screen for downloads
-- Check on generated key+secret pair to be unique
 
 Configuration:
 =====
